@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FraudSentinel AI - Mobile Dashboard</title>
+<!-- BEGIN: External Resources -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/7d56637e77.js"></script>
+<!-- END: External Resources -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#1f8cf9',
+            danger: '#ff4b2b',
+            warning: '#ffb347',
+            success: '#00e676',
+            glass: 'rgba(255, 255, 255, 0.05)',
+            'glass-border': 'rgba(255, 255, 255, 0.1)',
+            'deep-bg': '#05070a'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '8px',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-styling">
+    body {
+      background-color: #05070a;
+      background-image: 
+        radial-gradient(circle at 0% 0%, rgba(31, 140, 249, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 100% 100%, rgba(255, 75, 43, 0.1) 0%, transparent 40%);
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .neon-glow-brand {
+      text-shadow: 0 0 10px rgba(31, 140, 249, 0.8);
+    }
+
+    .pulse-animation {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+
+    .progress-line::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 24px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #1f8cf9, rgba(31, 140, 249, 0.1));
+    }
+
+    .gauge-container {
+      position: relative;
+      width: 160px;
+      height: 160px;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased pb-12">
+<!-- BEGIN: MainHeader -->
+<header class="pt-10 pb-6 px-6 text-center sticky top-0 z-50 bg-deep-bg/80 backdrop-blur-md">
+<h1 class="text-3xl font-extrabold tracking-tighter neon-glow-brand uppercase italic">
+      FraudSentinel <span class="text-white">AI</span>
+</h1>
+<p class="text-brand text-[10px] font-bold tracking-[0.2em] mt-1 uppercase">
+      AI-Powered 6-Layer Detection Pipeline
+    </p>
+</header>
+<!-- END: MainHeader -->
+<main class="px-5 space-y-6">
+<!-- BEGIN: InputSection -->
+<section data-purpose="input-container">
+<div class="glass-card rounded-custom overflow-hidden">
+<!-- Tabs -->
+<div class="flex border-b border-glass-border">
+<button class="flex-1 py-4 text-sm font-semibold border-b-2 border-brand text-brand bg-brand/5">
+<i class="fa-solid fa-microphone mr-2"></i>Upload Audio
+          </button>
+<button class="flex-1 py-4 text-sm font-semibold text-slate-400">
+<i class="fa-solid fa-file-lines mr-2"></i>Paste Transcript
+          </button>
+</div>
+<!-- Tab Content -->
+<div class="p-8 text-center">
+<div class="w-20 h-20 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6 pulse-animation border border-brand/30">
+<i class="fa-solid fa-microphone-lines text-3xl text-brand"></i>
+</div>
+<p class="text-slate-300 text-sm mb-6">Drop audio file here or tap to record</p>
+<button class="w-full bg-brand hover:bg-brand/90 text-white font-bold py-4 rounded-custom shadow-[0_0_20px_rgba(31,140,249,0.4)] transition-all active:scale-95">
+            ANALYZE NOW
+          </button>
+</div>
+</div>
+</section>
+<!-- END: InputSection -->
+<!-- BEGIN: QuickDemoSection -->
+<section data-purpose="demo-scams">
+<h2 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 ml-1">Try a Demo Scam</h2>
+<div class="grid grid-cols-1 gap-3">
+<!-- Demo Button 1 -->
+<button class="glass-card rounded-custom p-4 flex items-center justify-between border-brand/20 hover:border-brand/50 transition-colors group">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand">
+<i class="fa-solid fa-building-columns"></i>
+</div>
+<div class="text-left">
+<p class="font-bold text-sm">Bank OTP</p>
+<p class="text-[10px] text-slate-400">Impressioning agent</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-brand group-hover:underline">TEST</span>
+</button>
+<!-- Demo Button 2 -->
+<button class="glass-card rounded-custom p-4 flex items-center justify-between border-brand/20 hover:border-brand/50 transition-colors group">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand">
+<i class="fa-solid fa-truck-fast"></i>
+</div>
+<div class="text-left">
+<p class="font-bold text-sm">Courier Scam</p>
+<p class="text-[10px] text-slate-400">Unpaid customs fee</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-brand group-hover:underline">TEST</span>
+</button>
+<!-- Demo Button 3 -->
+<button class="glass-card rounded-custom p-4 flex items-center justify-between border-brand/20 hover:border-brand/50 transition-colors group">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand">
+<i class="fa-solid fa-chart-line"></i>
+</div>
+<div class="text-left">
+<p class="font-bold text-sm">Investment Fraud</p>
+<p class="text-[10px] text-slate-400">Crypto return promise</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-brand group-hover:underline">TEST</span>
+</button>
+</div>
+</section>
+<!-- END: QuickDemoSection -->
+<!-- BEGIN: AnalysisResults -->
+<section class="space-y-6" data-purpose="analysis-dashboard">
+<!-- Risk Score Circular Gauge -->
+<div class="glass-card rounded-custom p-8 flex flex-col items-center">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Threat Assessment</h3>
+<div class="gauge-container flex items-center justify-center">
+<!-- Simplified SVG Gauge -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="12"></circle>
+<circle cx="80" cy="80" fill="transparent" r="70" stroke="url(#scoreGradient)" stroke-dasharray="440" stroke-dashoffset="66" stroke-linecap="round" stroke-width="12"></circle>
+<defs>
+<lineargradient id="scoreGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" style="stop-color:#ffb347;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#ff4b2b;stop-opacity:1"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-black text-white">85<span class="text-sm font-normal text-slate-400">/100</span></span>
+<span class="text-[10px] font-bold px-2 py-0.5 bg-danger/20 text-danger rounded border border-danger/30 mt-1 uppercase">High Risk</span>
+</div>
+</div>
+</div>
+<!-- Detection Pipeline Progress -->
+<div class="glass-card rounded-custom p-6">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Pipeline Analysis</h3>
+<div class="relative space-y-6 progress-line">
+<!-- Step 1 -->
+<div class="relative flex items-center space-x-4">
+<div class="z-10 w-6 h-6 rounded-full bg-brand flex items-center justify-center shadow-[0_0_10px_#1f8cf9]">
+<i class="fa-solid fa-check text-[10px] text-white"></i>
+</div>
+<span class="text-sm font-medium text-slate-200">Speech-to-Text Transcription</span>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-center space-x-4">
+<div class="z-10 w-6 h-6 rounded-full bg-brand flex items-center justify-center shadow-[0_0_10px_#1f8cf9]">
+<i class="fa-solid fa-check text-[10px] text-white"></i>
+</div>
+<span class="text-sm font-medium text-slate-200">Rule-based Heuristics</span>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-center space-x-4">
+<div class="z-10 w-6 h-6 rounded-full bg-brand flex items-center justify-center shadow-[0_0_10px_#1f8cf9]">
+<i class="fa-solid fa-check text-[10px] text-white"></i>
+</div>
+<span class="text-sm font-medium text-slate-200">Semantic Analysis</span>
+</div>
+<!-- Step 4 -->
+<div class="relative flex items-center space-x-4">
+<div class="z-10 w-6 h-6 rounded-full bg-brand flex items-center justify-center shadow-[0_0_10px_#1f8cf9]">
+<i class="fa-solid fa-check text-[10px] text-white"></i>
+</div>
+<span class="text-sm font-medium text-slate-200">Social Engineering Vector</span>
+</div>
+<!-- Step 5 -->
+<div class="relative flex items-center space-x-4">
+<div class="z-10 w-6 h-6 rounded-full bg-brand/30 flex items-center justify-center animate-pulse">
+<div class="w-2 h-2 rounded-full bg-brand"></div>
+</div>
+<span class="text-sm font-bold text-brand italic">LLM Contextual Reasoning...</span>
+</div>
+<!-- Step 6 -->
+<div class="relative flex items-center space-x-4">
+<div class="z-10 w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center">
+<div class="w-1.5 h-1.5 rounded-full bg-slate-600"></div>
+</div>
+<span class="text-sm font-medium text-slate-500">Scoring Engine Finalizing</span>
+</div>
+</div>
+</div>
+<!-- Probability Chart -->
+<div class="glass-card rounded-custom p-6">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Scam Type Likelihood</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[11px] mb-1.5">
+<span class="font-bold text-slate-200">Bank Fraud</span>
+<span class="text-danger">90%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-danger to-orange-400 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[11px] mb-1.5">
+<span class="font-bold text-slate-200">Others</span>
+<span class="text-slate-500">10%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-slate-600 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Accordion Analysis -->
+<div class="space-y-3">
+<!-- Accordion 1 -->
+<details class="group glass-card rounded-custom overflow-hidden">
+<summary class="flex justify-between items-center p-5 cursor-pointer list-none">
+<span class="text-sm font-bold text-slate-200">Agent Reasoning</span>
+<i class="fa-solid fa-chevron-down text-xs transition-transform group-open:rotate-180"></i>
+</summary>
+<div class="px-5 pb-5 text-xs text-slate-400 leading-relaxed border-t border-glass-border pt-4">
+            The AI detected a significant pattern mismatch. The caller requested a <span class="text-brand">One-Time Password (OTP)</span> within the first 60 seconds of conversation, which deviates from standard banking protocols. Semantic analysis indicates a high use of <span class="text-danger">urgency keywords</span>.
+          </div>
+</details>
+<!-- Accordion 2 -->
+<details class="group glass-card rounded-custom overflow-hidden" open="">
+<summary class="flex justify-between items-center p-5 cursor-pointer list-none">
+<span class="text-sm font-bold text-slate-200">Detected Red Flags</span>
+<i class="fa-solid fa-chevron-down text-xs transition-transform group-open:rotate-180"></i>
+</summary>
+<div class="px-5 pb-5 text-xs space-y-3 border-t border-glass-border pt-4">
+<div class="flex items-start space-x-2">
+<i class="fa-solid fa-circle-exclamation text-danger mt-0.5"></i>
+<p><span class="text-danger font-bold">Unsolicited Contact:</span> Originating number not found in bank database.</p>
+</div>
+<div class="flex items-start space-x-2">
+<i class="fa-solid fa-circle-exclamation text-danger mt-0.5"></i>
+<p><span class="text-danger font-bold">Urgency Manipulation:</span> Caller emphasized "account freeze" 4 times.</p>
+</div>
+<div class="flex items-start space-x-2">
+<i class="fa-solid fa-circle-check text-success mt-0.5"></i>
+<p><span class="text-success font-bold">Safe Point:</span> Caller used standard greeting (Low significance).</p>
+</div>
+</div>
+</details>
+</div>
+</section>
+<!-- END: AnalysisResults -->
+</main>
+<!-- BEGIN: BottomNav -->
+<nav class="fixed bottom-0 left-0 right-0 bg-deep-bg/95 border-t border-glass-border px-8 py-4 flex justify-between items-center z-50">
+<button class="text-brand">
+<i class="fa-solid fa-shield-halved text-xl"></i>
+</button>
+<button class="text-slate-600">
+<i class="fa-solid fa-chart-pie text-xl"></i>
+</button>
+<button class="text-slate-600">
+<i class="fa-solid fa-clock-rotate-left text-xl"></i>
+</button>
+<button class="text-slate-600">
+<i class="fa-solid fa-gear text-xl"></i>
+</button>
+</nav>
+<!-- END: BottomNav -->
+</body></html>

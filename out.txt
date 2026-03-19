@@ -1,0 +1,1 @@
+Transcription error: Error transcribing audio: [Errno 1094995529] Invalid data found when processing input: 'C:\\Users\\HP\\AppData\\Local\\Temp\\tmpf2insryu.wav'

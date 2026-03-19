@@ -1,0 +1,11 @@
+node_modules/
+.npm/
+.git/
+.gitignore
+__pycache__/
+*.pyc
+.env
+.DS_Store
+dist/
+build/
+.vscode/

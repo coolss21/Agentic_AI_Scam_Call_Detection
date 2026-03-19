@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+build/
+dist/
+*.bak
+*.swp
+
+# JavaScript / React
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+
+# Temporary sync folders
+hf_sync/
+final_hf_sync/
+final_hf_sync_v2/
+exclude_git.txt
+
+# Streamlit
+.streamlit/
+
+# Antigravity artifacts (if any)
+brain/
+tmp/
+.gemini/
