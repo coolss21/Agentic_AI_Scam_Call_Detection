@@ -1,84 +1,99 @@
----
-title: FraudSentinel AI
-emoji: 🛡️
-colorFrom: red
-colorTo: purple
-sdk: streamlit
-sdk_version: 1.40.0
-app_file: app.py
-pinned: false
-license: mit
----
+# 🛡️ FraudSentinel AI: Agentic Scam Call Detection
 
-# 🛡️ FraudSentinel AI — 6-Layer Agentic Scam Detector
+<div align="center">
+  <h3>Next-Generation Voice Fraud Analysis & Threat Intelligence</h3>
+  
+  [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+  [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
+  [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Spaces-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/spaces/coolss21/Agentic_AI)
+  [![OpenRouter](https://img.shields.io/badge/Agentic_AI-OpenRouter-8C54FF?style=for-the-badge)](https://openrouter.ai/)
+</div>
 
-**FraudSentinel** is a state-of-the-art, multi-agent AI system designed to detect and dissect psychological manipulation in real-time. Whether it's a suspicious bank call or an unexpected prize notification, FraudSentinel analyzes your conversation text or audio to uncover deceptive tactics.
+<br/>
 
-🚀 **Live Demo on Hugging Face:** [coolss21/fraudsentinel_v2](https://huggingface.co/spaces/coolss21/fraudsentinel_v2)
+**FraudSentinel AI** is a state-of-the-art, multi-layered voice analysis platform engineered to definitively detect and intercept sophisticated phone scams. By merging ultra-fast phonetic transcription with deep semantic heuristics and Agentic LLM reasoning, the system generates real-time, explainable threat assessments for any audio interaction.
 
 ---
 
-## 🏗️ 6-Layer Detection Architecture
+## ✨ Live Demonstration
 
-FraudSentinel doesn't just look for words; it understands intent. Our pipeline combines traditional analysis with agentic AI reasoning:
+🚀 **Experience the live, unified dashboard in action:**  
+👉 **[Launch FraudSentinel AI on Hugging Face](https://huggingface.co/spaces/coolss21/Agentic_AI)**
 
-1.  **Rule-Based Analysis**: 150+ weighted keywords categorized into 10 high-risk domains.
-2.  **Semantic Similarity**: Intent matching using `sentence-transformers` to detect "scam-like" speech patterns.
-3.  **Social Engineering Detection**: Probes for common manipulation tactics like Authority, Urgency, and Reciprocity.
-4.  **Deep LLM Reasoning**: Utilizes OpenAI models (via OpenRouter) for contextual, multi-turn analysis.
-5.  **Risk Scorer**: A composite 4-signal weighted index calculating the final "Scam Score."
-6.  **Forensic Reporting**: Generates a detailed breakdown of which tactics were detected.
+---
+
+## 🧠 The 6-Layer Detection Architecture
+
+Our system does not rely on simple word matching. It utilizes a synchronized multi-agent heuristic pipeline to analyze the psychological intent and semantic risk of a conversation:
+
+1. **🎙️ Speech-to-Text Pipeline**: Utilizes `faster-whisper` for highly optimized, offline transcription.
+2. **📖 Semantic Engine**: Deploys `sentence-transformers` to map conversational flow against high-risk scam embeddings.
+3. **⚖️ Rule-Based Heuristics**: Instantly flags critical trigger phrases (e.g., "gift card", "arrest warrant", "remote access").
+4. **🎭 Social Engineering Analyzer**: Detects psychological manipulation tactics like synthetic urgency, authority impersonation, and forced isolation.
+5. **🤖 LLM Agentic Reasoning**: Connects to via API OpenRouter to deploy advanced reasoning algorithms, contextualizing the conversation to eliminate false positives.
+6. **⚠️ Final Risk Orchestrator**: Fuses the sub-agent scores into a unified, actionable Threat Level (Safe, Suspicious, High Risk, Critical).
+
+---
+
+## 🛠️ System Workflow
 
 ```mermaid
-graph LR
-    A[Input] --> B[Transcription]
-    B --> C[Keyword Agent]
-    B --> D[Semantic Agent]
-    B --> E[Social Engineering Agent]
-    C --> F[Scoring Engine]
-    D --> F
-    E --> F
-    F --> G[LLM Contextual Agent]
-    G --> H[Final Report]
+graph TD
+    A[Raw Audio / Live Call] -->|Whisper Transcription| B(Transcribed Text)
+    B --> C{Agentic Orchestrator}
+    C -->|Transformer Embeddings| D[Semantic Detector]
+    C -->|Pattern Matching| E[Rule-Based Engine]
+    C -->|Tactic Modeling| F[Social Engineering Detector]
+    C -->|Contextual Reasoning| G[LLM API Engine]
+    D --> H[Risk Fusion Engine]
+    E --> H
+    F --> H
+    G --> H
+    H --> I((Final Threat Report))
 ```
 
 ---
 
-## 🛠️ Technical Stack
+## 💻 Local Installation & Usage
 
-- **Framework**: Streamlit (Python)
-- **Transcription**: Faster-Whisper (Optimized CTranslate2)
-- **Embeddings**: Sentence-Transformers (`all-MiniLM-L6-v2`)
-- **LLM**: GPT-4o-mini (Integrated via OpenRouter)
-- **Optimizations**: Global model caching for sub-1s analysis and lazy library loading.
+You can easily run the FraudSentinel engine locally on your machine for maximum privacy and execution speed.
+
+### Prerequisites
+* Python 3.9+ 
+* FFmpeg (Required for audio processing)
+
+### Quick Start
+
+1. **Clone the highly secure repository:**
+   ```bash
+   git clone https://github.com/coolss21/Agentic_AI_Scam_Call_Detection.git
+   cd Agentic_AI_Scam_Call_Detection
+   ```
+
+2. **Install the unified dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Configure the AI Environment:**
+   Create a `.env` file in the root directory and add your OpenRouter key:
+   ```env
+   OPEN_ROUTER_API_KEY=your_api_key_here
+   ```
+
+4. **Launch the Core Interface:**
+   ```bash
+   streamlit run app.py
+   ```
 
 ---
 
-## 🚀 How to Run Locally
+## 🎨 UI/UX Excellence
+The interface is wrapped in a breathtaking Cyber-Security styled glassmorphism aesthetic. The custom CSS automatically adapts to the analysis logic, deploying cinematic micro-animations, glowing risk-level indicators, and an ultra-modern dark mode palette guaranteed to impress.
 
-### 1. Prerequisites
-- Python 3.10+
-- FFmpeg (for audio/video transcription)
+## 🤝 Contribution & Maintenance
+This repository is architected carefully for academic and commercial cyber-security evaluations. All pull requests are welcome.
 
-### 2. Setup
-```bash
-# Clone the repository
-git clone https://github.com/coolss21/Agentic_AI_Scam_Call_Detection
-cd Agentic_AI_Scam_Call_Detection
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### 3. Execution
-```bash
-streamlit run app.py
-```
-
----
-
-## 🔑 Configuration
-To enable the **Deep LLM Analysis** layer, enter your `OPENROUTER_API_KEY` in the application sidebar. This is optional; the core 5-layer detection system works entirely offline.
-
-## 🛡️ License
-Distributed under the MIT License. See `LICENSE` for more information.
+<div align="center">
+  <p><i>Defending the vulnerable, one conversation at a time.</i></p>
+</div>
