@@ -1,3 +1,14 @@
+---
+title: Fraud Sentinel AI
+emoji: 🛡️
+colorFrom: red
+colorTo: blue
+sdk: streamlit
+sdk_version: "1.43.0"
+app_file: app.py
+pinned: false
+---
+
 # 🛡️ FraudSentinel AI: Agentic Scam Call Detection
 
 <div align="center">
